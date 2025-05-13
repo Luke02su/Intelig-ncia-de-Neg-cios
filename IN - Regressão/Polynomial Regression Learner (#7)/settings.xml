@@ -6,20 +6,19 @@
         <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
     </config>
     <config key="model">
-        <entry key="target" type="xstring" value="Salário Mínimo"/>
-        <config key="column_filter">
+        <entry key="degree" type="xint" value="2"/>
+        <entry key="targetColumn" type="xstring" value="Salário Mínimo"/>
+        <entry key="maxViewRows" type="xint" value="10000"/>
+        <entry key="missing_value_handling" type="xstring" value="fail"/>
+        <config key="column filter">
             <entry key="filter-type" type="xstring" value="STANDARD"/>
             <config key="included_names">
                 <entry key="array-size" type="xint" value="1"/>
                 <entry key="0" type="xstring" value="Ano"/>
             </config>
             <config key="excluded_names">
-                <entry key="array-size" type="xint" value="5"/>
-                <entry key="0" type="xstring" value="Salário Referência"/>
-                <entry key="1" type="xstring" value="Reajuste Salário Mínimo"/>
-                <entry key="2" type="xstring" value="Reajuste Benefícios Acima SM"/>
-                <entry key="3" type="xstring" value="Teto Máximo de Contribuição"/>
-                <entry key="4" type="xstring" value="Vigência"/>
+                <entry key="array-size" type="xint" value="1"/>
+                <entry key="0" type="xstring" value="Reajuste Salário Mínimo"/>
             </config>
             <entry key="enforce_option" type="xstring" value="EnforceExclusion"/>
             <config key="name_pattern">
@@ -31,24 +30,15 @@
             <config key="datatype">
                 <config key="typelist">
                     <entry key="org.knime.core.data.IntValue" type="xboolean" value="false"/>
-                    <entry key="org.knime.core.data.StringValue" type="xboolean" value="false"/>
                     <entry key="org.knime.core.data.DoubleValue" type="xboolean" value="false"/>
-                    <entry key="org.knime.core.data.BooleanValue" type="xboolean" value="false"/>
-                    <entry key="org.knime.core.data.LongValue" type="xboolean" value="false"/>
-                    <entry key="org.knime.core.data.date.DateAndTimeValue" type="xboolean" value="false"/>
                 </config>
             </config>
         </config>
-        <entry key="include_constant" type="xboolean" value="true"/>
-        <entry key="offset_value" type="xdouble" value="0.0"/>
-        <entry key="missing_value_handling" type="xstring" value="fail"/>
-        <entry key="scatter_plot_first_row" type="xint" value="1"/>
-        <entry key="scatter_plot_row_count" type="xint" value="20000"/>
     </config>
     <entry key="customDescription" type="xstring" isnull="true" value=""/>
-    <entry key="state" type="xstring" value="CONFIGURED"/>
-    <entry key="factory" type="xstring" value="org.knime.base.node.mine.regression.linear2.learner.LinReg2LearnerNodeFactory2"/>
-    <entry key="node-name" type="xstring" value="Linear Regression Learner"/>
+    <entry key="state" type="xstring" value="EXECUTED"/>
+    <entry key="factory" type="xstring" value="org.knime.base.node.mine.regression.polynomial.learner2.PolyRegLearnerNodeFactory2"/>
+    <entry key="node-name" type="xstring" value="Polynomial Regression Learner"/>
     <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
     <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base"/>
     <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
@@ -58,21 +48,36 @@
     <entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
     <entry key="node-feature-version" type="xstring" value="5.4.1.v202503031334"/>
     <config key="factory_settings"/>
-    <entry key="name" type="xstring" value="Linear Regression Learner"/>
-    <entry key="hasContent" type="xboolean" value="false"/>
+    <entry key="name" type="xstring" value="Polynomial Regression Learner"/>
+    <entry key="hasContent" type="xboolean" value="true"/>
     <entry key="isInactive" type="xboolean" value="false"/>
     <config key="ports">
         <config key="port_1">
             <entry key="index" type="xint" value="1"/>
-            <entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+            <entry key="port_spec_class" type="xstring" value="org.knime.core.node.port.pmml.PMMLPortObjectSpec"/>
+            <entry key="port_object_class" type="xstring" value="org.knime.core.node.port.pmml.PMMLPortObject"/>
+            <entry key="port_object_summary" type="xstring" value="PMML document with version 4.2 and models: RegressionModel"/>
+            <entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
+            <entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
+            <entry key="port_dir_location" type="xstring" value="port_1"/>
         </config>
         <config key="port_2">
             <entry key="index" type="xint" value="2"/>
-            <entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+            <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
+            <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+            <entry key="port_object_summary" type="xstring" value="Rows: 34, Cols: 9"/>
+            <entry key="port_dir_location" type="xstring" value="port_2"/>
+        </config>
+        <config key="port_3">
+            <entry key="index" type="xint" value="3"/>
+            <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
+            <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+            <entry key="port_object_summary" type="xstring" value="Rows: 3, Cols: 6"/>
+            <entry key="port_dir_location" type="xstring" value="port_3"/>
         </config>
     </config>
     <config key="filestores">
         <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-        <entry key="file_store_id" type="xstring" isnull="true" value=""/>
+        <entry key="file_store_id" type="xstring" value="f65bd706-f903-4033-a11c-c47d8ff95851"/>
     </config>
 </config>
